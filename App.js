@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View  } from 'react-native';
+import PaginaInicial from './components/PaginaInicial';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ChatPage from './components/chat';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
+const Stack = createBottomTabNavigator();
+const MyTheme = {
+  colors: {
+    primary: '#20232A',
+     background: '#20232A',
+     text: '#61DAFB',
+     card: '#20232A',
+     border:'#20232A'
+  },
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+        <SafeAreaProvider>
+          <NavigationContainer theme={MyTheme}>
+            <Stack.Navigator initialRouteName='PaginaInicial'>
+              <Stack.Screen name="PaginaInicial" component={PaginaInicial} options={{title:'Pagina Inicial'}}/>
+              <Stack.Screen name="ChatPage" component={ChatPage} options={{ title: 'Chat Page' }}/>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
