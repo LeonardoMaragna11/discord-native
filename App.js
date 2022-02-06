@@ -21,7 +21,7 @@ export default function App() {
   return (
         <SafeAreaProvider>
           <NavigationContainer theme={MyTheme}>
-            <Stack.Navigator initialRouteName='PaginaInicial'>
+            <Stack.Navigator initialRouteName='ChatPage'>
               <Stack.Screen name="PaginaInicial" component={PaginaInicial} options={{title:'Pagina Inicial'}}/>
               <Stack.Screen name="ChatPage" component={ChatPage} options={{ title: 'Chat Page' }}/>
             </Stack.Navigator>

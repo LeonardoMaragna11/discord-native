@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     textAlign: "center",
     alignItems: "center",
+    borderWidth:'1px',
+    borderStyle:'solid',
   },
   body: {
     minWidth: "100%",
@@ -128,12 +130,14 @@ const styles = StyleSheet.create({
   bodyImg: {
     alignItems: "center",
     textAlign: "center",
-    backgroundColor: "#333",
+    backgroundColor: "#181F25",
     height: "195px",
     width: "146px",
     justifyContent: "center",
     flexDirection: "row",
     borderRadius: "10px",
+    borderWidth:'1px',
+    borderStyle:'solid',
   },
   defaultName: {
     color: "#ABABAB",

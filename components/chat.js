@@ -21,7 +21,8 @@ const SUPABASE_CLIENT = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 export default function ChatPage({ route, navigation }) {
 
 
-    const { username, otherParam } = route.params;
+    // const { username, otherParam } = route.params;
+    const username = ''
     const [mensagem, setMensagem] = React.useState('')
     const [listaMensagens, SetListaMensagens] = React.useState([])
     React.useEffect(()=>{
@@ -82,9 +83,9 @@ export default function ChatPage({ route, navigation }) {
                                         event.preventDefault()
                                         handleNovaMensagem(mensagem)
                                 }}
-                                style={{backgroundColor: '#fff'}}
+                                style={styles.btn}
                             >
-                                <Text>Enviar</Text>
+                                <Text style={styles.txt}>Enviar</Text>
                             </TouchableOpacity>
                     </View>
                 </View>
@@ -116,7 +117,7 @@ function MessageList(props) {
                         <Image
                             src={`https://github.com/${mensagem.de}.png`}
                         />
-                        <Text tag="strong">
+                        <Text>
                             {mensagem.de}
                         </Text>
                         <Text>
@@ -139,6 +140,7 @@ const styles = StyleSheet.create({
       borderRadius: "50%",
       textAlign: "center",
       alignItems: "center",
+      flex:1
     },
     body: {
       minWidth: "100%",
@@ -154,8 +156,8 @@ const styles = StyleSheet.create({
       marginBottom: "",
     },
     input: {
-      margin: "10px",
-      width: "365px",
+      margin: "5px",
+      width: "300px",
       height: "45px",
       borderStyle: "solid",
       borderColor: "#FFF",
@@ -165,6 +167,7 @@ const styles = StyleSheet.create({
       color: "#ABABAB",
       fontSize: "15px",
       marginBottom: "10px",
+      backgroundColor:'#181F25'
     },
     subtitulo: {
       color: "#ABABAB",
@@ -193,12 +196,17 @@ const styles = StyleSheet.create({
       textAlign: "center",
     },
     btn: {
-      width: "36px",
-      height: "38px",
-      borderRadius: "50%",
+      width: "50px",
+      height: "40px",
+      borderRadius: "10px",
       backgroundColor: "#61DAFB",
       textAlign: "center",
-      margin:'9px'
+      margin:'9px',
+      alignItems:  'center',
     },
+    txt:{
+        textAlign: "center",
+        justifyContent: 'center'
+    }
   });
   
