@@ -63,7 +63,7 @@ export default function ChatPage({ route, navigation }) {
             <View>
                 <View  style={{backgroundColor: '#000', color:'#fff'}}>
                     {/* <MessageList mensagem={listaMensagens} />    */}
-                    <View>
+                    <View >
                         <TextInput
                             value={mensagem}
                             onChange={(event)=>{
@@ -79,8 +79,7 @@ export default function ChatPage({ route, navigation }) {
                             style={styles.input}
                             placeholder="Insira sua mensagem aqui..."/>
                             <TouchableOpacity 
-                                onClick={(event)=>{
-                                        event.preventDefault()
+                                onPress={(event)=>{
                                         handleNovaMensagem(mensagem)
                                 }}
                                 style={styles.btn}
@@ -156,7 +155,10 @@ const styles = StyleSheet.create({
       marginBottom: "",
     },
     input: {
-      margin: "5px",
+      flex:1,
+      marginBottom: "5px",
+      marginTop: "5px",
+      marginLeft: "5px",
       width: "300px",
       height: "45px",
       borderStyle: "solid",
@@ -206,6 +208,13 @@ const styles = StyleSheet.create({
     },
     txt:{
         textAlign: "center",
+        justifyContent: 'center', 
+        flex:1,
+        alignItems: 'center'
+    },
+    divMsg:{
+        alignItems:'center',
+        flex:1,
         justifyContent: 'center'
     }
   });
