@@ -58,12 +58,12 @@ export default function ChatPage({ route, navigation }) {
         }
     }
     return (
-        <View style={{backgroundColor:'#fff'}}>
+        <View style={{backgroundColor:'transparent'}}>
                   <Text>username: {username}</Text>
             <View>
-                <View  style={{backgroundColor: '#000', color:'#fff'}}>
-                    {/* <MessageList mensagem={listaMensagens} />    */}
-                    <View >
+                <View  style={{backgroundColor: 'transparent', color:'#fff'}}>
+                    <MessageList mensagem={listaMensagens} />   
+                    <View style={styles.bodyBtn}>
                         <TextInput
                             value={mensagem}
                             onChange={(event)=>{
@@ -111,7 +111,7 @@ function MessageList(props) {
         <View>
             {props.mensagem.map((mensagem)=>{
                 return(
-                <View key={mensagem.id}>
+                <FlatList key={mensagem.id}>
                     <View>
                         <Image
                             src={`https://github.com/${mensagem.de}.png`}
@@ -124,13 +124,10 @@ function MessageList(props) {
                         </Text>
                     </View>
                     {mensagem.texto}
-                </View>)
+                </FlatList>)
             })}
-            
         </View>
-        
     )
-    
 }
 const styles = StyleSheet.create({
     tinyLogo: {
@@ -155,11 +152,7 @@ const styles = StyleSheet.create({
       marginBottom: "",
     },
     input: {
-      flex:1,
-      marginBottom: "5px",
-      marginTop: "5px",
-      marginLeft: "5px",
-      width: "300px",
+      width: "200px",
       height: "45px",
       borderStyle: "solid",
       borderColor: "#FFF",
@@ -168,8 +161,8 @@ const styles = StyleSheet.create({
       padding: "10px",
       color: "#ABABAB",
       fontSize: "15px",
-      marginBottom: "10px",
-      backgroundColor:'#181F25'
+      backgroundColor:'#181F25',
+      flexDirection:'row'
     },
     subtitulo: {
       color: "#ABABAB",
@@ -177,10 +170,11 @@ const styles = StyleSheet.create({
       textAlign: "center",
     },
     bodyBtn: {
-      width: "385px",
-      alignItems: "flex-end",
-      padding: "3px",
-      marginBottom: "50px",
+      width: "360px",
+      height: "55px",
+      flex:1,
+      flexDirection:'row',
+      justifyContent:'space-between'
     },
     bodyImg: {
       alignItems: "center",
@@ -198,19 +192,19 @@ const styles = StyleSheet.create({
       textAlign: "center",
     },
     btn: {
-      width: "50px",
-      height: "40px",
-      borderRadius: "10px",
       backgroundColor: "#61DAFB",
-      textAlign: "center",
-      margin:'9px',
-      alignItems:  'center',
+      alignItems:'center',
+      justifyContent:'center',
+      width:'50px',
+      borderRadius:'10px',
     },
     txt:{
         textAlign: "center",
         justifyContent: 'center', 
         flex:1,
-        alignItems: 'center'
+        alignItems: 'center',
+
+        padding:'10px',
     },
     divMsg:{
         alignItems:'center',

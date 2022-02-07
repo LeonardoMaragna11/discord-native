@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     borderStyle:'solid',
   },
   body: {
-    minWidth: "100%",
+    minWidth: "360px",
     height: "100%",
     backgroundColor: "#20232A",
     justifyContent: "center",
@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
     marginBottom: "",
   },
   input: {
-    margin: "10px",
-    width: "365px",
+    margin: "5px",
+    width: "360px",
     height: "45px",
     borderStyle: "solid",
     borderColor: "#FFF",
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
     padding: "10px",
     color: "#ABABAB",
     fontSize: "15px",
-    marginBottom: "10px",
   },
   subtitulo: {
     color: "#ABABAB",
@@ -150,7 +149,9 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     backgroundColor: "#61DAFB",
     textAlign: "center",
-    margin:'9px'
+    margin:'9px',
+    alignItems:'center',
+    justifyContent:'center'
   },
 });
 
