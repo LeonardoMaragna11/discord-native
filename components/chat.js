@@ -10,6 +10,7 @@ import {
     TextInput,
     Image,
     TouchableOpacity,
+    ScrollView
   } from "react-native";
 
 
@@ -48,7 +49,7 @@ export default function ChatPage({ route, navigation }) {
                     .then(({ data })=>{
                         SetListaMensagens([
                             data[0],
-                            ...listaMensagens  
+                            ...listaMensagens
                         ])
                     })
                 setMensagem('')
@@ -58,10 +59,9 @@ export default function ChatPage({ route, navigation }) {
         }
     }
     return (
-        <View style={{backgroundColor:'transparent'}}>
-                  <Text>username: {username}</Text>
+        <View style={{backgroundColor:'transparent', alignItems:'center', justifyContent:'center'}}>
             <View>
-                <View  style={{backgroundColor: 'transparent', color:'#fff'}}>
+                <View  style={{backgroundColor: 'transparent', color:'#fff',alignItems:'center', justifyContent:'center'}}>
                     <MessageList mensagem={listaMensagens} />   
                     <View style={styles.bodyBtn}>
                         <TextInput
@@ -93,28 +93,15 @@ export default function ChatPage({ route, navigation }) {
     )
 }
 
-function Header() {
-    return (
-        <>
-            <View>
-                <Text>
-                    Chat
-                </Text>
-                <TouchableOpacity/>
-            </View>
-        </>
-    )
-}
-
 function MessageList(props) {
     return (
-        <View>
+        <ScrollView style={styles.lista}>
             {props.mensagem.map((mensagem)=>{
                 return(
-                <FlatList key={mensagem.id}>
+                <View style={{justifyContent:'center', flexDirection:'column'}}>
                     <View>
                         <Image
-                            src={`https://github.com/${mensagem.de}.png`}
+                            source={{uri:`https://github.com/${mensagem.de}.png`}}
                         />
                         <Text>
                             {mensagem.de}
@@ -124,10 +111,10 @@ function MessageList(props) {
                         </Text>
                     </View>
                     {mensagem.texto}
-                </FlatList>)
+                </View>)
             })}
-        </View>
-    )
+        </ScrollView>
+    )   
 }
 const styles = StyleSheet.create({
     tinyLogo: {
@@ -152,7 +139,7 @@ const styles = StyleSheet.create({
       marginBottom: "",
     },
     input: {
-      width: "200px",
+      width: "300px",
       height: "45px",
       borderStyle: "solid",
       borderColor: "#FFF",
@@ -197,6 +184,8 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       width:'50px',
       borderRadius:'10px',
+      padding:'10px',
+      height:'45px'
     },
     txt:{
         textAlign: "center",
@@ -210,6 +199,15 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flex:1,
         justifyContent: 'center'
+    },
+    lista:{
+        backgroundColor:'#181F25',
+        width:'350px', 
+        height:'450px', 
+        color:'#fff',
+        borderRadius:'5px',
+        marginBottom:'15px',
+        padding:'15px'
     }
   });
   
