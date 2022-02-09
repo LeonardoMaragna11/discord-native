@@ -11,8 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-
-function PaginaInicial({navigation}) {
+function PaginaInicial({ navigation }) {
   const [username, setUsername] = React.useState("React");
   const [foto, setFoto] = React.useState(
     "https://reactnative.dev/img/tiny_logo.png"
@@ -23,8 +22,6 @@ function PaginaInicial({navigation}) {
       <Text style={styles.titulo}>Bem Vindo </Text>
       <SafeAreaView>
         <SafeAreaView>
-          {/* Formulário */}
-
           <SafeAreaView style={styles.bodyBtn}>
             <TextInput
               style={styles.input}
@@ -40,12 +37,14 @@ function PaginaInicial({navigation}) {
                 }
               }}
             />
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.btn}
-              onPress={()=>{navigation.navigate('ChatPage', {
-                username: username,
-                otherParam: 'anything you want here',
-              });}}
+              onPress={() => {
+                navigation.navigate("ChatPage", {
+                  username: username,
+                  otherParam: "anything you want here",
+                });
+              }}
             >
               <Image
                 source={{
@@ -60,9 +59,6 @@ function PaginaInicial({navigation}) {
               />
             </TouchableOpacity>
           </SafeAreaView>
-          {/* Formulário */}
-
-          {/* Photo Area */}
         </SafeAreaView>
       </SafeAreaView>
       <SafeAreaView style={styles.bodyImg}>
@@ -74,7 +70,6 @@ function PaginaInicial({navigation}) {
         />
       </SafeAreaView>
       <Text style={styles.defaultName}>{username}</Text>
-      {/* Photo Area */}
     </SafeAreaView>
   );
 }
@@ -86,8 +81,8 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     textAlign: "center",
     alignItems: "center",
-    borderWidth:'1px',
-    borderStyle:'solid',
+    borderWidth: "1px",
+    borderStyle: "solid",
   },
   body: {
     minWidth: "250px",
@@ -116,9 +111,9 @@ const styles = StyleSheet.create({
     width: "280px",
     alignItems: "center",
     padding: "3px",
-    flexDirection:'row',
-    marginBottom:'15px',
-    justifyContent:'space-between',
+    flexDirection: "row",
+    marginBottom: "15px",
+    justifyContent: "space-between",
   },
   bodyImg: {
     alignItems: "center",
@@ -128,15 +123,15 @@ const styles = StyleSheet.create({
     width: "105px",
     flexDirection: "row",
     borderRadius: "10px",
-    borderWidth:'1px',
-    borderStyle:'solid',
-    justifyContent:'center',
-    elevation:30,
-    shadowColor:'#222',
-    shadowOffset:{
-      width:'3px',
-      height:'3px'
-    }
+    borderWidth: "1px",
+    borderStyle: "solid",
+    justifyContent: "center",
+    elevation: 30,
+    shadowColor: "#222",
+    shadowOffset: {
+      width: "3px",
+      height: "3px",
+    },
   },
   defaultName: {
     color: "#ABABAB",
@@ -149,8 +144,8 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     backgroundColor: "#61DAFB",
     textAlign: "center",
-    alignItems:'center',
-    justifyContent:'space-between',
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 

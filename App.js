@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DiReact } from 'react-icons/fa'
 
+
 const Stack = createBottomTabNavigator();
 const MyTheme = {
   colors: {
