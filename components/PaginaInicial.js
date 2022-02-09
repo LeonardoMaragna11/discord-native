@@ -10,7 +10,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { DefaultTheme, DarkTheme } from '@react-navigation/native';
+
 
 function PaginaInicial({navigation}) {
   const [username, setUsername] = React.useState("React");
@@ -19,9 +19,8 @@ function PaginaInicial({navigation}) {
   );
 
   return (
-    <SafeAreaView style={DarkTheme,styles.body}>
-      <Text style={styles.titulo}>Bem Vindo</Text>
-      <Text style={styles.subtitulo}>{`Olá, ${username}`}</Text>
+    <SafeAreaView style={styles.body}>
+      <Text style={styles.titulo}>Bem Vindo </Text>
       <SafeAreaView>
         <SafeAreaView>
           {/* Formulário */}
@@ -82,8 +81,8 @@ function PaginaInicial({navigation}) {
 
 const styles = StyleSheet.create({
   tinyLogo: {
-    height: "130px",
-    width: "130px",
+    height: "100px",
+    width: "100px",
     borderRadius: "50%",
     textAlign: "center",
     alignItems: "center",
@@ -91,22 +90,20 @@ const styles = StyleSheet.create({
     borderStyle:'solid',
   },
   body: {
-    minWidth: "360px",
+    minWidth: "250px",
     height: "100%",
     backgroundColor: "#20232A",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     padding: "10px",
   },
   titulo: {
     color: "#CCCCCC",
-    fontSize: "30px",
-    marginBottom: "",
+    fontSize: "25px",
   },
   input: {
-    margin: "5px",
-    width: "360px",
-    height: "45px",
+    width: "230px",
+    height: "35px",
     borderStyle: "solid",
     borderColor: "#FFF",
     borderRadius: "15px",
@@ -115,43 +112,45 @@ const styles = StyleSheet.create({
     color: "#ABABAB",
     fontSize: "15px",
   },
-  subtitulo: {
-    color: "#ABABAB",
-    fontSize: "20px",
-    textAlign: "center",
-  },
   bodyBtn: {
-    width: "385px",
-    alignItems: "flex-end",
+    width: "280px",
+    alignItems: "center",
     padding: "3px",
-    marginBottom: "50px",
+    flexDirection:'row',
+    marginBottom:'15px',
+    justifyContent:'space-between',
   },
   bodyImg: {
     alignItems: "center",
     textAlign: "center",
     backgroundColor: "#181F25",
-    height: "195px",
-    width: "146px",
-    justifyContent: "center",
+    height: "150px",
+    width: "105px",
     flexDirection: "row",
     borderRadius: "10px",
     borderWidth:'1px',
     borderStyle:'solid',
+    justifyContent:'center',
+    elevation:30,
+    shadowColor:'#222',
+    shadowOffset:{
+      width:'3px',
+      height:'3px'
+    }
   },
   defaultName: {
     color: "#ABABAB",
-    fontSize: "20px",
+    fontSize: "15px",
     textAlign: "center",
   },
   btn: {
-    width: "36px",
-    height: "38px",
+    width: "35px",
+    height: "35px",
     borderRadius: "50%",
     backgroundColor: "#61DAFB",
     textAlign: "center",
-    margin:'9px',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'space-between',
   },
 });
 
