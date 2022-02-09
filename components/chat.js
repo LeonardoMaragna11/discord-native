@@ -97,48 +97,57 @@ function MessageList(props) {
   return (
     <ScrollView style={styles.lista}>
         {props.mensagem.map((mensagem) => {
-            let _cor = '#001323'
+            let _cor = '#63DDFF'
             let _display = 'none'
             let _aling = 'flex-end'
             let _justify ='space-between'
+            let _flex = 'row'
             if(props.username != mensagem.de){
-                _cor = '#0050ff'
+                _cor = '#3C8599'
                 _display ='flex'
                 _aling='flex-start'
                 _justify='space-between'
+                _flex='column'
             }
         return (
-          <View 
-            style={{ 
-                justifyContent: _justify, 
-                flexDirection: 'row', 
-                marginBottom:'20px',
-                backgroundColor:_cor,
-                padding:'10px',
-                borderRadius:'5px',
-                alignItems:_aling,
-                width:'190px'
-             }}
-            >
-            <View>
-              <Image
+        <View style={{ flexDirection:'row', justifyContent:_aling }}>
+            <View style={{ flexDirection:'row' }}>
+                <Image
+                    style={{
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '50%',
+                      display: 'inline-block',
+                      marginRight: '8px',
+                      display:_display
+                    }}
+                    source={{ uri: `https://github.com/${mensagem.de}.png` }}
+                  />
+                <View
                 style={{
-                  width: '20px',
-                  height: '20px',
-                  borderRadius: '50%',
-                  display: 'inline-block',
-                  marginRight: '8px',
-                  display:_display
-                }}
-                source={{ uri: `https://github.com/${mensagem.de}.png` }}
-              />
-              <Text style={{display:_display}}>{mensagem.de}</Text>
-              <Text
-                style={{ fontSize: '10px', marginLeft: '8px', color: '#AAA' }}>
-                {new Date().toLocaleDateString()}
-              </Text>
+                    justifyContent: _justify,
+                    flexDirection: 'row',
+                    marginBottom:'20px',
+                    backgroundColor:_cor,
+                    padding:'7px',
+                    borderRadius:'5px',
+                    alignItems:_aling,
+                    width:'190px'
+                 }}
+                >
+            <View style={{ flexDirection:'row', flex:0}}>
+                <View style={{ flexDirection:_aling, }}>
+                    <Text style={{display:_display, justifyContent:'center'}}>
+                        {mensagem.de}
+                    </Text>
+                    <Text style={{ fontSize: '10px', marginLeft: '8px', color: '#333', }}>
+                        {new Date().toLocaleDateString()}
+                    </Text>
+                    {mensagem.texto}
+                </View>
+              </View>
             </View>
-            {mensagem.texto}
+          </View>
           </View>
         );
       })}
@@ -188,7 +197,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#181F25',
     width: '290px',
     height: '330px',
-    color: '#fff',
+    color: '#000',
     borderRadius: '5px',
     marginBottom: '15px',
     padding: '15px',
