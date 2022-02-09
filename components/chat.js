@@ -62,7 +62,7 @@ export default function ChatPage({ route, navigation }) {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <MessageList mensagem={listaMensagens} />
+          <MessageList mensagem={listaMensagens} username={username} />
           <View style={styles.bodyBtn}>
             <TextInput
               value={mensagem}
@@ -96,16 +96,28 @@ export default function ChatPage({ route, navigation }) {
 function MessageList(props) {
   return (
     <ScrollView style={styles.lista}>
-      {props.mensagem.map((mensagem) => {
+        {props.mensagem.map((mensagem) => {
+            let _cor = '#001323'
+            let _display = 'none'
+            let _aling = 'flex-end'
+            let _justify ='space-between'
+            if(props.username != mensagem.de){
+                _cor = '#0050ff'
+                _display ='flex'
+                _aling='flex-start'
+                _justify='space-between'
+            }
         return (
           <View 
             style={{ 
-                justifyContent: 'center', 
-                flexDirection: 'column', 
+                justifyContent: _justify, 
+                flexDirection: 'row', 
                 marginBottom:'20px',
-                backgroundColor:'#001323',
+                backgroundColor:_cor,
                 padding:'10px',
-                borderRadius:'5px'
+                borderRadius:'5px',
+                alignItems:_aling,
+                width:'190px'
              }}
             >
             <View>
@@ -116,10 +128,11 @@ function MessageList(props) {
                   borderRadius: '50%',
                   display: 'inline-block',
                   marginRight: '8px',
+                  display:_display
                 }}
                 source={{ uri: `https://github.com/${mensagem.de}.png` }}
               />
-              <Text>{mensagem.de}</Text>
+              <Text style={{display:_display}}>{mensagem.de}</Text>
               <Text
                 style={{ fontSize: '10px', marginLeft: '8px', color: '#AAA' }}>
                 {new Date().toLocaleDateString()}
